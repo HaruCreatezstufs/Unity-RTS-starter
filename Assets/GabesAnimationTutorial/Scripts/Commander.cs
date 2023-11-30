@@ -29,7 +29,7 @@ public class Commander : MonoBehaviour
     {
         Debug.DrawRay(camToWorldRay.origin, camToWorldRay.direction* 100, Color.blue,1);
 
-        if(Physics.Raycast(camToWorldRay, out RaycastHit hitObject, 100, StaticUtilities.MoveLayerMask)) return;
+        if(!Physics.Raycast(camToWorldRay, out RaycastHit hitObject, 100, StaticUtilities.MoveLayerMask)) return;
 
         foreach(Monster monster in controlledMonsters)
         {
