@@ -1,7 +1,5 @@
 using UnityEngine;
 
-
-[DefaultExecutionOrder(-100)]
 public class Settings : MonoBehaviour
 {
     [field: SerializeField, Range(0,100)] public float MouseMoveSense { get; private set; }
@@ -10,7 +8,7 @@ public class Settings : MonoBehaviour
     
     public static Settings Instance { get; private set; }
 
-    void Awake()
+    void Start()
     {
         if (Instance != null && Instance != this)
         {

@@ -27,22 +27,21 @@ public class Monster : MonoBehaviour
 
     private void Update()
     {
-        Vector3 velocity = transform.InverseTransformVector(ai.velocity);
-        
+        Vector3 velocity = transform.InverseTransformDirection(ai.velocity);
         myAnimator.SetFloat(StaticUtilities.XSpeedAnimId, velocity.x);
-        myAnimator.SetFloat(StaticUtilities.YSpeedAnimId, velocity.z);
+        myAnimator.SetFloat(StaticUtilities.ZSpeedAnimId, velocity.z);
+
     }
 
-    public void MoveToTarget(Vector3 hitInfoPoint)
+    public void MoveToTarget(Vector3 hitObjectPoint)
     {
-        ai.SetDestination(hitInfoPoint);
+        ai.SetDestination(hitObjectPoint);
+        
     }
 
     public void ChangeIdleState()
     {
-        int rngIndex = Random.Range(0, 2);
-        myAnimator.SetFloat(StaticUtilities.IdleAnimId, rngIndex);
+        int newState = Random.Range(0, 2);
+        myAnimator.SetFloat(StaticUtilities.IdleAnimId, newState);
     }
-    
-
 }

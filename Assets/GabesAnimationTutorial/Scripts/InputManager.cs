@@ -75,7 +75,7 @@ public static class InputManager
 
     private static Ray CamToWorldRay()
     {
-        return _camera.ScreenPointToRay(Mouse.current.position.ReadValue());
+        return _camera.ScreenPointToRay(Mouse.current.position.value);
     }
 
     private static void SetUIMode()

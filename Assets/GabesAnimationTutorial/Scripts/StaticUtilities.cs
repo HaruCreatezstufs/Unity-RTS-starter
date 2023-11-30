@@ -4,7 +4,7 @@ public static class StaticUtilities
 {
     // 1) Animations
     public static readonly int XSpeedAnimId = Animator.StringToHash("xSpeed");
-    public static readonly int YSpeedAnimId = Animator.StringToHash("ySpeed");
+    public static readonly int ZSpeedAnimId = Animator.StringToHash("zSpeed");
     public static readonly int IdleAnimId = Animator.StringToHash("IdleState");
 
     // 2) Layers

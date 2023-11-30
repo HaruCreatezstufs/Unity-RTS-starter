@@ -16,7 +16,7 @@ public class Commander : MonoBehaviour
     private void Update()
     {
         Transform myTransCached  = transform;
-        myTransCached.Rotate(Vector3.up,Time.deltaTime *   Settings.Instance.MouseRotateSens * _rotationDirection );
+        myTransCached.Rotate(Vector3.up, Time.deltaTime * Settings.Instance.MouseRotateSens * _rotationDirection);
         myTransCached.position += transform.rotation * (Time.deltaTime * Settings.Instance.MouseMoveSense * _moveDirection);
     }
 
@@ -29,14 +29,12 @@ public class Commander : MonoBehaviour
     {
         Debug.DrawRay(camToWorldRay.origin, camToWorldRay.direction* 100, Color.blue,1);
 
-        if (!Physics.Raycast(camToWorldRay, out RaycastHit hit, 100, StaticUtilities.MoveLayerMask))
-            return;
+        if(Physics.Raycast(camToWorldRay, out RaycastHit hitObject, 100, StaticUtilities.MoveLayerMask)) return;
 
-        foreach (Monster monster in controlledMonsters)
+        foreach(Monster monster in controlledMonsters)
         {
-            monster.MoveToTarget(hit.point);
+            monster.MoveToTarget(hitObject.point);
         }
-        
     }
     
     
